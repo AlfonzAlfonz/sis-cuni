@@ -1,0 +1,91 @@
+body > table .menu {
+  display: flex;
+  margin-top: 0 !important;
+  width: 100%;
+  font-size: 1rem;
+
+  * {
+    border: none !important;
+  }
+
+  .menu1 {
+    display: flex;
+    font-size: 1rem;
+    padding: 1rem 0;
+    background: var(--grey-500) !important;
+    width: 100vw;
+    overflow-x: scroll;
+    position: fixed;
+    top: 66px;
+    z-index: 80;
+
+    td {
+      display: flex;
+      color: white !important;
+    }
+
+    .session {
+      display: none;
+    }
+
+    .ico {
+      background: transparent !important;
+
+      a {
+        display: none;
+      }
+
+      a.home {
+        display: block;
+        background: none !important;
+        width: initial;
+        height: initial;
+        white-space: nowrap;
+        text-decoration: none !important;
+        margin: 0 1rem;
+        font-size: 2rem;
+        line-height: .75;
+
+        &::after {
+          content: "←";
+          font-weight: 700;
+          color: var(--bg);
+        }
+      }
+    }
+
+    
+  }
+
+  .menu2 {
+    display: flex;
+    background: var(--grey-600);
+    width: calc(100vw - 1rem);
+    overflow: scroll;
+    position: relative;
+    padding: 0 .5rem;
+    z-index: 0;
+    top: 122px;
+
+    td:first-child {
+      display: none;
+    }
+    a {
+      color: white !important;
+      line-height: 3;
+    }
+
+    .menu_empty {
+      display: none;
+    }
+  }
+
+  .menu_a {
+    background: none !important;
+    color: white !important;
+  }
+
+  .menu {
+    color: white !important;
+  }
+}

@@ -1,0 +1,270 @@
+#stev_header_bkg {
+  width: 100%;
+  display: flex;
+  background: none;
+  background-color: var(--primary) !important;
+  margin-top: 0;
+  padding-top: 1.2rem;
+  border: none !important;
+  position: fixed;
+  z-index: 99;
+
+  #stev_header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    min-width: initial !important;
+    height: initial;
+    background: none;
+    background-color: var(--primary) !important;
+    border: none !important;
+    padding-bottom: 0.6rem;
+
+    & > * {
+      display: flex;
+    }
+
+    #stev_module_ico {
+      display: block;
+      flex-grow: 1;
+      margin-left: 0.45rem;
+
+      img {
+        border: none;
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    #stev_nazev {
+      display: none;
+    }
+
+    #stev_logo {
+      display: none;
+    }
+
+    #stev_role_icons {
+      display: flex;
+
+      #stev_role {
+        display: flex;
+        text-align: center;
+        font-size: 0.5rem;
+
+        * {
+          font-size: 0.9rem !important;
+          font-weight: 400;
+        }
+
+        #stev_user_roles {
+          display: flex;
+          position: fixed;
+          top: 1.6rem;
+          left: 0;
+          right: 0;
+          overflow: hidden;
+          margin: 0 60px;
+          overflow: hidden;
+
+          #stev_datum {
+            display: none;
+          }
+        }
+
+        #stev_jmeno,
+        #stev_user_roles_fak {
+          display: none;
+        }
+      }
+
+      #stev_icons {
+        display: none;
+      }
+
+      &:hover #stev_icons {
+        display: block;
+        position: fixed;
+        background: white;
+        padding: 1rem 1rem 0rem 1rem;
+        top: 4.3rem;
+        right: 0.5rem;
+        border: 1px solid var(--primary);
+        z-index: 99;
+
+        a {
+          background: none;
+          display: block;
+          width: initial;
+          height: initial;
+          text-align: left;
+          line-height: 2;
+          font-size: 1rem;
+
+          &::after {
+            content: attr(title);
+          }
+        }
+      }
+
+      &::after {
+        content: "🌶️";
+        text-align: center;
+        margin-right: 1rem;
+        width: 34px;
+        height: 34px;
+        padding-top: 2px;
+      }
+    }
+
+    #flogin {
+      display: none !important;
+    }
+  }
+}
+
+.body-with-login {
+  #stev_header_bkg {
+    position: static;
+
+    #stev_header {
+      height: 100vh;
+      flex-direction: column;
+
+      & > * {
+        display: flex;
+      }
+
+      #stev_nazev,
+      #stev_module_ico,
+      #stev_header,
+      #stev_role_icons,
+      #stev_role {
+        white-space: normal;
+      }
+
+      #stev_module_ico img {
+        display: none;
+      }
+
+      #stev_module_ico::before {
+        content: "SIS CUNI";
+        display: block;
+        position: absolute;
+        top: 20%;
+        text-align: center;
+        left: 0;
+        right: 0;
+        font-size: 3rem;
+      }
+
+      #stev_module_ico::after {
+        content: "Studijní informační systém";
+        display: block;
+        position: absolute;
+        top: calc(20% + 60px);
+        text-align: center;
+        left: 0;
+        right: 0;
+        font-size: 1rem;
+      }
+
+      #stev_role_icons {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex-grow: 1;
+      }
+
+      #stev_role,
+      #stev_role_prihlaseni,
+      #stev_role_prihlaseni #flogin {
+        display: flex !important;
+      }
+
+      #stev_role_icons::after {
+        content: none;
+      }
+
+      #stev_nazev_modulu_sverzi {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #stev_nazev_modulu {
+        padding-left: 1rem;
+      }
+
+      #verze_modulu {
+        margin-left: 1rem;
+      }
+
+      #stev_role_prihlaseni {
+        height: 100%;
+      }
+
+      #stev_icons {
+        display: none !important;
+      }
+
+      #flogin {
+        display: block !important;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding: 3rem 1rem 0;
+        text-align: left;
+        justify-content: flex-end;
+
+        input[type="text"],
+        input[type="password"] {
+          width: 100% !important;
+          min-width: 0;
+          background: white !important;
+          border-radius: 0;
+          border: none;
+          margin-top: -0.5rem;
+          margin-bottom: 1rem;
+          padding: 0.4rem;
+        }
+
+        input[type="submit"] {
+          order: 10;
+          margin-top: 2rem;
+          border-radius: 0;
+        }
+
+        label {
+          width: 100%;
+          margin-bottom: 0;
+        }
+
+        label[for="chkAutologin"] {
+          width: calc(100% - 40px);
+          margin-top: 0.65rem;
+          margin-left: 0.6rem;
+        }
+
+        #chkAutologin {
+          width: initial;
+          margin-top: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .but1,
+  .but_next,
+  .but_find,
+  #flogin input[type="submit"] {
+    background: var(--bg);
+    color: var(--primary) !important;
+  }
+
+  .but1 a,
+  .but_next a,
+  .but_find a {
+    color: var(--primary) !important;
+  }
+}

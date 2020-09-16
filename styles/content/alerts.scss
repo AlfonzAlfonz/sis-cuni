@@ -1,0 +1,70 @@
+.warning,
+.error,
+.info {
+  display: flex;
+  width: calc(100vw - 2rem);
+
+  tbody,
+  tr {
+    display: flex;
+    width: 100%;
+    padding: 0 !important;
+  }
+
+  td {
+    padding: .5rem;
+  }
+
+  td:first-child {
+    background-repeat: no-repeat !important;
+    background-position: 50% !important;
+    width: 32px;
+
+    img {
+      display: none;
+    }
+  }
+
+  td:nth-child(2) {
+    display: flex;
+    border: none !important;
+    width: 100%;
+    font-size: 1rem;
+
+    ul {
+      list-style-type: none;
+      margin: 0 !important;
+      font-size: 1rem;
+    }
+  }
+}
+
+.warning {
+  background: #975a16;
+  td {
+    background: #ecc94b;
+  }
+  .warning_ico {
+    background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/alert-triangle.svg);
+  }
+}
+
+.info {
+  background: #63b3ed !important;
+  td {
+    background: #ceedff;
+  }
+  .info_ico {
+    background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/info.svg);
+  }
+}
+
+.error {
+  background: #9b2c2c !important;
+  td {
+    background: #f56565;
+  }
+  .error_ico {
+    background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/info.svg);
+  }
+}

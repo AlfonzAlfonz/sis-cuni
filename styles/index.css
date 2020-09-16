@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 20px;
+  color: #333;
+  min-height: 100vh;
+
+  --primary: #9f3853;
+  --primary-light: #e0a0b1;
+  --text: #333;
+  --bg: #fff;
+  --grey-50: #f9f0f0;
+  --grey-100: #dbd7d8;
+  --grey-200: #c0bcbe;
+  --grey-300: #a7a2a4;
+  --grey-400: #8e888a;
+  --grey-500: #756e70;
+  --grey-600: #5b5557;
+  --grey-700: #423d3f;
+  --grey-800: #292425;
+  --grey-900: #130a0f;
+}
+
+a {
+  color: var(--primary) !important;
+}
+
+table, tr, td, a, select, input, div, span, pre, code, form {
+  font-size: inherit;
+}

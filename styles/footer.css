@@ -1,0 +1,8 @@
+#foot {
+  display: none;
+}
+
+#foot + .shadow {
+  background: none;
+  margin-top: 6rem;
+}
