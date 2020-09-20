@@ -11,17 +11,18 @@ body > table .menu {
   .menu1 {
     display: flex;
     font-size: 1rem;
-    padding: 1rem 0;
-    background: var(--grey-500) !important;
+    padding: 1.2rem 0 1rem;
+    background: var(--grey-50) !important;
+    box-shadow: 2px 2px 15px rgba(0,0,0,.3);
     width: 100vw;
     overflow-x: scroll;
     position: fixed;
-    top: 66px;
+    top: 82px;
     z-index: 80;
 
     td {
       display: flex;
-      color: white !important;
+      color: var(--text) !important;
     }
 
     .session {
@@ -43,13 +44,13 @@ body > table .menu {
         white-space: nowrap;
         text-decoration: none !important;
         margin: 0 1rem;
-        font-size: 2rem;
-        line-height: .75;
+        font-size: 1.5rem;
+        line-height: .9;
 
         &::after {
           content: "←";
           font-weight: 700;
-          color: var(--bg);
+          color: var(--text) !important;
         }
       }
     }
@@ -65,7 +66,7 @@ body > table .menu {
     position: relative;
     padding: 0 .5rem;
     z-index: 0;
-    top: 122px;
+    top: 140px;
 
     td:first-child {
       display: none;
@@ -82,10 +83,10 @@ body > table .menu {
 
   .menu_a {
     background: none !important;
-    color: white !important;
+    color: var(--primary) !important;
   }
 
   .menu {
-    color: white !important;
+    color: var(--text) !important;
   }
 }

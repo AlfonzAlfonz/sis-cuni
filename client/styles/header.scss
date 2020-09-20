@@ -2,12 +2,13 @@
   width: 100%;
   display: flex;
   background: none;
-  background-color: var(--primary) !important;
+  background-color: var(--bg) !important;
   margin-top: 0;
   padding-top: 1.2rem;
   border: none !important;
   position: fixed;
   z-index: 99;
+  box-shadow: 2px 2px 10px rgba(0,0,0,.1);
 
   #stev_header {
     width: 100%;
@@ -16,7 +17,7 @@
     min-width: initial !important;
     height: initial;
     background: none;
-    background-color: var(--primary) !important;
+    background-color: var(--bg) !important;
     border: none !important;
     padding-bottom: 0.6rem;
 
@@ -25,11 +26,20 @@
     }
 
     #stev_module_ico {
-      display: block;
       flex-grow: 1;
       margin-left: 0.45rem;
+      margin-top: .8rem;
+      font-weight: 700;
+
+      &::after {
+        content: "SIS CUNI";
+        color: var(--primary) !important;
+        display: block;
+        padding-top: .45rem;
+      }
 
       img {
+        display: none;
         border: none;
         width: 34px;
         height: 34px;
@@ -46,6 +56,9 @@
 
     #stev_role_icons {
       display: flex;
+      width: 100vw;
+      flex-direction: row-reverse;
+      padding-right: 1rem;
 
       #stev_role {
         display: flex;
@@ -58,9 +71,9 @@
         }
 
         #stev_user_roles {
-          display: flex;
+          display: none;
           position: fixed;
-          top: 1.6rem;
+          top: 2.5rem;
           left: 0;
           right: 0;
           overflow: hidden;
@@ -87,9 +100,9 @@
         position: fixed;
         background: white;
         padding: 1rem 1rem 0rem 1rem;
-        top: 4.3rem;
+        top: 5.3rem;
         right: 0.5rem;
-        border: 1px solid var(--primary);
+        box-shadow: 2px 2px 15px rgba(0,0,0,.3);
         z-index: 99;
 
         a {
@@ -108,9 +121,15 @@
       }
 
       &::after {
-        content: "🌶️";
+        content: "";
+        background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/menu.svg);
+        filter: invert() brightness(80%);
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
         text-align: center;
-        margin-right: 1rem;
+        margin-top: .8rem;
+        position: relative;
         width: 34px;
         height: 34px;
         padding-top: 2px;

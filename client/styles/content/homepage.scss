@@ -1,0 +1,226 @@
+.body-with-homepage {
+  #content {
+    align-items: stretch;
+    margin-top: 0;
+    padding-top: 5rem !important;
+
+    & > div[style]:not([id]):not([class]) {
+      display: block !important;
+    }
+
+    & > div[style]:not([id]):not([class]):nth-child(even) {
+      margin-top: 1rem;
+      padding: 1rem 1rem !important;
+      letter-spacing: 1px;
+      margin-bottom: 0 !important;
+      background: var(--bg) !important;
+      color: var(--text) !important;
+    }
+
+    & > div[style]:not([id]):not([class]):nth-child(odd) {
+      background: var(--bg) !important;
+      padding: 0 1rem !important;
+      border: none !important;
+      box-shadow: 5px 5px 10px rgba(100, 100, 100, 0.1);
+
+      br {
+        display: block;
+      }
+    }
+
+    & > * {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    & > *:nth-child(2) {
+      order: 0;
+    }
+
+    & > *:nth-child(3) {
+      order: 0;
+    }
+
+    & > *:nth-child(4) {
+      order: 1;
+    }
+
+    & > *:nth-child(5) {
+      border-top: none !important;
+      padding-top: 0 !important;
+    }
+
+    & > *:nth-child(6) {
+      order: 999;
+      display: none !important;
+      background-color: white !important;
+      position: absolute;
+      top: -2000px;
+
+      ::after {
+        content: "";
+      }
+    }
+
+    & > *:nth-child(7) {
+      order: 1;
+      border-bottom: none !important;
+      margin-bottom: -0.6rem !important;
+      padding-bottom: 0 !important;
+    }
+
+    & > * {
+      order: 99;
+    }
+
+    & > div[style="border: 1px solid #C0C0C0; margin-bottom: 5px;background: #F5F5F5; padding: 3px 8px 3px 8px ;"] {
+      .link5 {
+        width: initial !important;
+        height: initial !important;
+        line-height: 2.45;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        border: none;
+        margin: 0 !important;
+        padding: 0.5rem 0 !important;
+
+        // &::before {
+        //   content: "";
+        //   display: block;
+        //   background-size: 24px !important;
+        //   background-repeat: no-repeat !important;
+        //   background-position: center !important;
+        //   width: 24px;
+        //   height: 32px;
+        //   float: left;
+        //   margin-right: 0.8rem;
+        // }
+
+        img {
+          vertical-align: middle;
+          margin-right: 0.8rem !important;
+          margin-left: 0.2rem;
+          border: none !important;
+        }
+
+        &:hover {
+          background: transparent;
+        }
+      }
+
+      * {
+        float: none !important;
+      }
+
+      // &:nth-child(5) {
+      //   order: 2;
+      //   & > div:nth-child(2) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/pen-tool.svg);
+      //   }
+      //   & > div:nth-child(3) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/award.svg);
+      //   }
+      //   & > div:nth-child(4) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/edit-2.svg);
+      //   }
+      //   & > div:nth-child(5) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/book.svg);
+      //   }
+      //   & > div:nth-child(6) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/star.svg);
+      //   }
+      //   & > div:nth-child(7) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/maximize.svg);
+      //   }
+      //   & > div:nth-child(8) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/archive.svg);
+      //   }
+      // }
+
+      // &:nth-child(7) {
+      //   & > div:nth-child(2) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/clock.svg);
+      //   }
+      // }
+
+      // &:nth-child(9) {
+      //   & > div:nth-child(2) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/key.svg);
+      //   }
+      // }
+
+      // &:nth-child(11) {
+      //   & > div:nth-child(2) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/users.svg);
+      //   }
+      //   & > div:nth-child(3) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/align-left.svg);
+      //   }
+      // }
+
+      // &:nth-child(13) {
+      //   & > div:nth-child(2) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/database.svg);
+      //   }
+      //   & > div:nth-child(3) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/external-link.svg);
+      //   }
+      //   & > div:nth-child(4) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/search.svg);
+      //   }
+      //   & > div:nth-child(5) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/maximize.svg);
+      //   }
+      //   & > div:nth-child(6) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/maximize.svg);
+      //   }
+      // }
+
+      // &:nth-child(15) {
+      //   & > div:nth-child(2) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/bookmark.svg);
+      //   }
+      //   & > div:nth-child(3) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/database.svg);
+      //   }
+      //   & > div:nth-child(4) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/trello.svg);
+      //   }
+      //   & > div:nth-child(5) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/users.svg);
+      //   }
+      //   & > div:nth-child(6) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/search.svg);
+      //   }
+      //   & > div:nth-child(6) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/log-in.svg);
+      //   }
+      //   & > div:nth-child(7) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/square.svg);
+      //   }
+      //   & > div:nth-child(8) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/user.svg);
+      //   }
+      //   & > div:nth-child(9) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/dollar-sign.svg);
+      //   }
+      //   & > div:nth-child(13) .link5::before {
+      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/dollar-sign.svg);
+      //   }
+      // }
+    }
+
+    div:first-of-type + div {
+      font-size: 12px;
+    }
+
+    div:nth-of-type(odd) {
+      font-size: 1rem;
+    }
+  }
+
+  .menu {
+    display: none;
+  }
+}

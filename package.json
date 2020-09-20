@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "dev": "nodemon --watch 'web-proxy/**/*.ts' --exec 'ts-node' web-proxy/index.ts"
+    "dev": "nodemon --watch 'web-proxy/**/*.ts' --exec 'ts-node' web-proxy/index.ts",
+    "build": "ts-node ./utils/compileSource.ts && expo build:android"
   },
   "dependencies": {
     "@expo/metro-config": "^0.1.25",

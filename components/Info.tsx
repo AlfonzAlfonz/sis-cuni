@@ -2,10 +2,10 @@ import React, { FC, useState } from "react";
 import { TouchableOpacity, View, Text, Modal, TouchableHighlight, Linking } from "react-native";
 
 interface Props {
-  uri: string;
+  active: boolean;
 }
 
-const Info: FC<Props> = ({ uri }) => {
+const Info: FC<Props> = ({ active }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -19,7 +19,7 @@ const Info: FC<Props> = ({ uri }) => {
           alignItems: "flex-end"
         }}
       >
-        {uri.startsWith("https://is.cuni.cz/studium/index.php") && (
+        {active && (
           <TouchableOpacity
             onPress={() => setOpen(true)}
             style={{

@@ -9,6 +9,7 @@
     display: flex;
     width: 100%;
     padding: 0 !important;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.1);
   }
 
   td {
@@ -40,9 +41,9 @@
 }
 
 .warning {
-  background: #975a16;
+  background:#f6e05e;
   td {
-    background: #ecc94b;
+    background: #fffff0;
   }
   .warning_ico {
     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/alert-triangle.svg);
@@ -56,6 +57,7 @@
   }
   .info_ico {
     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/info.svg);
+    filter: invert();
   }
 }
 
@@ -66,5 +68,6 @@
   }
   .error_ico {
     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/info.svg);
+    filter: invert();
   }
 }

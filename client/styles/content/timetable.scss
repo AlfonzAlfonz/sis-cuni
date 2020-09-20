@@ -30,7 +30,7 @@ table tr {
       color: white !important;
       padding: 0.5rem;
       text-decoration: none;
-      margin-left: .7rem;
+      margin-left: 0.7rem;
 
       img {
         display: none;
@@ -55,14 +55,91 @@ table tr {
   display: flex;
   width: 100vw !important;
   overflow: scroll;
+  position: relative;
 
-  #roztab > tbody {
+  tbody {
+    display: block;
+    position: relative;
+  }
+
+  tr {
+    display: flex;
+  }
+
+  #head {
+    position: relative;
+    background: var(--primary) !important;
+    height: 50px;
+
+    td {
+      display: block;
+      position: absolute;
+      z-index: 999;
+      background: var(--bg) !important;
+      margin-left: 50px;
+      padding-bottom: 0px !important;
+      width: 100%;
+
+      .outer {
+        border-right: 1px solid var(--primary) !important;
+        width: 104.3px !important;
+        flex-grow: 0;
+        float: left;
+        padding: 1rem 0.5rem;
+
+        &:last-child {
+          border-right: none !important;
+        }
+
+        .inner {
+          display: flex;
+          flex-direction: row-reverse;
+
+          .blok {
+            display: inline;
+            
+            &:first-of-type {
+              width: 100%;
+              text-align: right;
+
+              &::after {
+                content: "(";
+              }
+            }
+          }
+
+          &::before {
+            content: ")";
+          }
+        }
+      }
+
+      &.day {
+        background: var(--bg) !important;
+      }
+    }
+  }
+
+  & > tbody {
     display: table;
   }
 
   td {
     border: none !important;
     font-size: 15px;
+
+    &.day {
+      background: var(--primary) !important;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .blok {
+        display: block;
+      }
+    }
   }
 
   tr:nth-child(even) {
@@ -82,7 +159,7 @@ table tr {
     overflow: visible !important;
 
     .nowrap {
-      white-space: pre !important;
+      white-space: normal !important;
       overflow: visible !important;
       display: none;
     }
