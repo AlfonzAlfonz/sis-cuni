@@ -1,5 +1,6 @@
 declare const css: string;
 declare const ReactNativeWebView: any;
+declare const dl_notify_init: any;
 
 export const clientJS = () => {
   const injectStyles = () => {
@@ -12,8 +13,43 @@ export const clientJS = () => {
     meta.setAttribute("name", "viewport");
     meta.setAttribute("content", "width=device-width, initial-scale=1, minimum-scale=1");
     document.head.appendChild(meta);
+
+    const roboto = document.createElement("meta");
+    roboto.setAttribute("href", "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
+    roboto.setAttribute("rel", "stylesheet");
+    document.head.appendChild(roboto);
   };
   injectStyles();
+
+  const lang = () => {
+    if (document.querySelector("#stev_lang_en")) {
+      document.body.classList.add("lang_cs");
+    } else {
+      document.body.classList.add("lang_en");
+    }
+  };
+  lang();
+
+  const header = () => {
+    const root = document.getElementById("stev_header");
+    const bell = document.getElementById("stev_notify");
+    const alerts = document.getElementById("stev_notify_bar");
+
+    bell && root?.appendChild(bell);
+    alerts && root?.appendChild(alerts);
+
+    bell?.addEventListener("click", e => {
+      e.stopPropagation();
+      alerts?.classList.add("open");
+    });
+
+    window.addEventListener("click", () => {
+      alerts?.classList.remove("notif-open");
+    });
+
+    // dl_notify_init();
+  };
+  header();
 
   const loginpage = () => {
     if (document.querySelector("#stev_role_icons.anonym") && window.location.pathname.startsWith("/studium/index.php")) {

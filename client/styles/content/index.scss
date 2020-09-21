@@ -164,11 +164,12 @@ div.filtr_div {
   border: none;
   background: var(--primary);
   padding: 0.3rem 1rem !important;
-  font-weight: 700;
   color: var(--bg) !important;
   margin-top: 0.3rem;
   display: inline-block;
   white-space: nowrap;
+  padding: .7rem 2rem !important;
+  letter-spacing: .3px;
 }
 
 .but1 a,

@@ -8,7 +8,7 @@
   border: none !important;
   position: fixed;
   z-index: 99;
-  box-shadow: 2px 2px 10px rgba(0,0,0,.1);
+  box-shadow: 0 2px 15px -7px rgba(0, 0, 0, 0.2);
 
   #stev_header {
     width: 100%;
@@ -28,14 +28,17 @@
     #stev_module_ico {
       flex-grow: 1;
       margin-left: 0.45rem;
-      margin-top: .8rem;
+      margin-top: 0.8rem;
       font-weight: 700;
 
       &::after {
         content: "SIS CUNI";
+        font-family: "Roboto";
+        font-weight: 300;
+        letter-spacing: 1px;
         color: var(--primary) !important;
         display: block;
-        padding-top: .45rem;
+        padding-top: 0.45rem;
       }
 
       img {
@@ -96,14 +99,16 @@
       }
 
       &:hover #stev_icons {
-        display: block;
+        display: flex;
+        flex-direction: column;
         position: fixed;
         background: white;
-        padding: 1rem 1rem 0rem 1rem;
-        top: 5.3rem;
-        right: 0.5rem;
-        box-shadow: 2px 2px 15px rgba(0,0,0,.3);
+        top: 5.2rem;
+        right: 0;
+        box-shadow: 2px 10px 15px -6px rgba(150, 150, 150, 0.3);
         z-index: 99;
+        left: 20%;
+        padding: 0 1rem;
 
         a {
           background: none;
@@ -111,14 +116,62 @@
           width: initial;
           height: initial;
           text-align: left;
-          line-height: 2;
+          line-height: 1;
           font-size: 1rem;
+          padding: 1.5rem 0.5rem;
 
           &::after {
             content: attr(title);
           }
         }
+
+        #stev_layout {
+          display: none;
+        }
+
+        #stev_settings {
+          order: 2;
+          padding-top: 0;
+
+          &::after {
+            content: "Osobní info, nastavení, e-mail";
+          }
+          .lang_en &::after {
+            content: "Settings, profile, email";
+          }
+        }
+
+        #stev_logoff {
+          order: 3;
+          border-bottom: none !important;
+
+          &::after {
+            content: "Odhlásit se";
+          }
+          .lang_en &::after {
+            content: "Log off";
+          }
+        }
+
+        #stev_help {
+          display: none;
+        }
+
+        #stev_report {
+          display: none;
+        }
+
+        
+
+        #stev_lang_en::after {
+          content: "English";
+        }
+        #stev_lang_cz::after {
+          content: "Čeština";
+        }
       }
+
+
 
       &::after {
         content: "";
@@ -128,7 +181,7 @@
         background-repeat: no-repeat;
         background-position: center;
         text-align: center;
-        margin-top: .8rem;
+        margin-top: 0.8rem;
         position: relative;
         width: 34px;
         height: 34px;
@@ -138,6 +191,72 @@
 
     #flogin {
       display: none !important;
+    }
+
+    #stev_notify {
+      position: absolute;
+      z-index: 9999;
+      background: none;
+      top: 2.7rem;
+      right: 5rem;
+
+      &::after {
+        content: "";
+        display: block;
+        background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/bell.svg);
+        filter: invert() brightness(80%);
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    #stev_notify_bar {
+      position: absolute;
+      top: 5.2rem !important;
+      left: 1rem;
+      right: 1rem;
+      display: none;
+      flex-direction: column;
+      border: none;
+      background-color: var(--bg);
+      box-shadow: 2px 10px 15px -6px rgba(150, 150, 150, 0.3);
+
+      &.notif-open {
+        display: flex;;
+      }
+
+      #stev_notify_counter {
+        border: none !important;
+      }
+
+      #zadnenove {
+        min-height: 200px;
+        display: flex;
+        justify-content: center;
+        font-size: .9rem;
+        flex-direction: column;
+
+        &::after {
+          content: "(žádné notifikace)";
+          display: block;
+          line-height: 2;
+          text-align: center;
+          margin-top: -1.4rem;
+          background: var(--bg);
+          letter-spacing: .1px;
+        }
+
+        .lang_en &::after {
+          content: "(no notification)";
+        }
+      }
+
+      .more {
+        background: var(--bg);
+        padding: 1rem 0;
+        border-top: none;
+        font-size: 1.2rem;
+      }
     }
   }
 }
@@ -168,6 +287,9 @@
 
       #stev_module_ico::before {
         content: "SIS CUNI";
+        color: var(--primary);
+        font-family: var(--heading);
+        font-weight: 100;
         display: block;
         position: absolute;
         top: 20%;
@@ -186,6 +308,7 @@
         left: 0;
         right: 0;
         font-size: 1rem;
+        letter-spacing: 0.2px;
       }
 
       #stev_role_icons {
@@ -245,13 +368,22 @@
           border: none;
           margin-top: -0.5rem;
           margin-bottom: 1rem;
-          padding: 0.4rem;
+          padding: 0.6rem;
+          border: 1px solid var(--grey-100);
+          border-bottom: 2px solid var(--primary);
         }
 
         input[type="submit"] {
           order: 10;
           margin-top: 2rem;
           border-radius: 0;
+          padding: 0.7rem 1.4rem !important;
+          background-color: var(--primary);
+          color: var(--bg) !important;
+          letter-spacing: 0.3px;
+          font-family: var(--heading) !important;
+          font-weight: 300 !important;
+          letter-spacing: 1.5px !important;
         }
 
         label {
@@ -263,6 +395,7 @@
           width: calc(100% - 40px);
           margin-top: 0.65rem;
           margin-left: 0.6rem;
+          color: var(--text);
         }
 
         #chkAutologin {

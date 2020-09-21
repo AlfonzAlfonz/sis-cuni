@@ -1,63 +1,46 @@
-import React, { FC, useRef, useState } from "react";
-import { Linking } from "react-native";
+import React, { FC, useEffect, useRef, useState } from "react";
+import { BackHandler } from "react-native";
 import WebView from "react-native-webview";
-import { useStyle } from "../useStyle";
-import { useSource } from "../useSource/index";
-import { trace } from "../utils/trace";
 
-const styles = [
-  require("../client/styles/content/alerts.scss"),
-  require("../client/styles/content/index.scss"),
-  require("../client/styles/content/homepage.scss"),
-  require("../client/styles/content/timetable.scss"),
-  require("../client/styles/footer.css"),
-  require("../client/styles/header.scss"),
-  require("../client/styles/index.css"),
-  require("../client/styles/menu.scss")
-];
+import { useBrowser } from "../useBrowser";
+import { trace } from "../utils/trace";
 
 interface Props {
   setProgress: (i: number) => unknown;
 }
 
 const SisView: FC<Props> = ({ setProgress }) => {
-  const [uri, setUri] = useState("https://is.cuni.cz/studium");
   const ref = useRef<WebView>(null!);
-  const style = useStyle(styles, ref);
-  const source = useSource();
+  const { javascript, uri, ready, navigate } = useBrowser(ref);
+
+  useEffect(() => {
+    const backAction = () => {
+      ref.current.goBack();
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, []);
 
   return (
     <>
-      {style && (
+      {ready && (
         <WebView
           source={{ uri }}
           onMessage={e => { }}
-          injectedJavaScript={`
-            const css = \`${style}\`;
-
-            ${source!}
-
-            true;
-          `}
+          injectedJavaScript={javascript}
           onLoadProgress={({ nativeEvent }) => {
             setProgress(nativeEvent.progress);
           }}
-          onShouldStartLoadWithRequest={(request) => {
-            if (request.url === uri) return true;
-
-            if (request.url.startsWith("https://is.cuni.cz/studium") || request.url.startsWith("https://idp.cuni.cz")) {
-              if (request.url.startsWith("https://is.cuni.cz/studium/login.php")) {
-                setUri("https://is.cuni.cz/studium");
-                alert("Neplatné jméno nebo heslo");
-              } else {
-                setUri(request.url);
-              }
-            } else {
-              Linking.openURL(request.url);
-            }
-
-            return false;
+          onLoad={() => {
+            setProgress(1);
           }}
+          onShouldStartLoadWithRequest={req => navigate(req.url)}
           ref={ref}
           onError={(syntheticEvent) => {
             const { nativeEvent } = syntheticEvent;
