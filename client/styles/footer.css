@@ -2,7 +2,7 @@
   display: none;
 }
 
-#foot + .shadow {
-  background: none;
-  margin-top: 6rem;
+#foot + .shadow  {
+  background: #eee !important;
+  height: 5rem !important;
 }

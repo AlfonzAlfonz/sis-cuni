@@ -1,4 +1,7 @@
-table tr {
+.roztab-download {
+  order: 2;
+  padding-top: 2rem;
+
   .row_tab_left {
     display: none;
   }
@@ -97,7 +100,7 @@ table tr {
 
           .blok {
             display: inline;
-            
+
             &:first-of-type {
               width: 100%;
               text-align: right;

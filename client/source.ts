@@ -1,8 +1,26 @@
 declare const css: string;
 declare const ReactNativeWebView: any;
-declare const dl_notify_init: any;
 
 export const clientJS = () => {
+  let loaded = false;
+  const load = () => {
+    loaded = true;
+    injectStyles();
+  };
+
+  setTimeout(() => document.head && load());
+
+  window.addEventListener("DOMContentLoaded", () => {
+    !loaded && load();
+    lang();
+    header();
+    loginpage();
+    homepage();
+    timetable();
+    filters();
+    moduleId();
+  });
+
   const injectStyles = () => {
     const style = document.createElement("style");
     style.setAttribute("type", "text/css");
@@ -19,7 +37,6 @@ export const clientJS = () => {
     roboto.setAttribute("rel", "stylesheet");
     document.head.appendChild(roboto);
   };
-  injectStyles();
 
   const lang = () => {
     if (document.querySelector("#stev_lang_en")) {
@@ -28,15 +45,17 @@ export const clientJS = () => {
       document.body.classList.add("lang_en");
     }
   };
-  lang();
 
   const header = () => {
     const root = document.getElementById("stev_header");
     const bell = document.getElementById("stev_notify");
     const alerts = document.getElementById("stev_notify_bar");
+    const burger = document.createElement("dir");
+    burger.setAttribute("id", "app-burger");
 
     bell && root?.appendChild(bell);
     alerts && root?.appendChild(alerts);
+    root?.appendChild(burger);
 
     bell?.addEventListener("click", e => {
       e.stopPropagation();
@@ -46,10 +65,7 @@ export const clientJS = () => {
     window.addEventListener("click", () => {
       alerts?.classList.remove("notif-open");
     });
-
-    // dl_notify_init();
   };
-  header();
 
   const loginpage = () => {
     if (document.querySelector("#stev_role_icons.anonym") && window.location.pathname.startsWith("/studium/index.php")) {
@@ -60,7 +76,6 @@ export const clientJS = () => {
       });
     }
   };
-  loginpage();
 
   const homepage = () => {
     const isHomepage = Array
@@ -71,13 +86,11 @@ export const clientJS = () => {
       document.body.classList.add("body-with-homepage");
     }
   };
-  homepage();
 
   const timetable = () => {
     const tt = document.querySelector("#roztab");
     if (tt) {
-      Array
-        .from(document.querySelectorAll("#roztab .inner > span.nowrap i,#roztab .inner > span.nowrap b"))
+      document.querySelectorAll("#roztab .inner > span.nowrap i,#roztab .inner > span.nowrap b")
         .forEach(e => {
           e.textContent = e.textContent!.split(/\s/).join("\n");
           const last = e.parentNode?.childNodes[e.parentNode?.childNodes.length - 1];
@@ -92,8 +105,8 @@ export const clientJS = () => {
         const rect = tt?.getBoundingClientRect();
 
         head.map(h => {
-          if (rect.top < 140) {
-            h.style.top = Math.abs(rect.top - 140) - 2 + "px";
+          if (rect.top < 128) {
+            h.style.top = Math.abs(rect.top - 130) - 2 + "px";
           } else {
             h.style.top = "0";
           }
@@ -107,7 +120,28 @@ export const clientJS = () => {
         setTimeout(a, 5);
         setTimeout(a, 8);
       });
+
+      const tabimg = document.querySelector("tbody > tr > .row_tab img[src=\"../img/ico_pdf.png\"]")!;
+      let tabs = tabimg;
+      while (tabs.tagName !== "TABLE" || tabs.parentElement === null) {
+        tabs = tabs.parentElement!;
+      }
+      tabs.classList.add("roztab-download");
     }
   };
-  timetable();
+
+  const filters = () => {
+    const handles = document.querySelectorAll<HTMLAnchorElement>("a[id^='filtr_href_']");
+    handles.forEach(h => h.click());
+  };
+
+  const moduleId = () => {
+    const module = /^\/studium\/([\w-]+)\//.exec(window.location.pathname);
+    const page = /([\w-]+)\.php$/.exec(window.location.pathname);
+    const doParam = new URLSearchParams(window.location.search).get("do");
+
+    module && document.body.classList.add(`module-${module[1]}`);
+    page && document.body.classList.add(`page-${page[1]}`);
+    doParam && document.body.classList.add(`do-${doParam}`);
+  };
 };

@@ -19,17 +19,14 @@
     background: none;
     background-color: var(--bg) !important;
     border: none !important;
-    padding-bottom: 0.6rem;
-
-    & > * {
-      display: flex;
-    }
+    align-items: center;
+    margin: 0.8rem 0.5rem 0.8rem;
 
     #stev_module_ico {
       flex-grow: 1;
-      margin-left: 0.45rem;
-      margin-top: 0.8rem;
-      font-weight: 700;
+      width: 100% !important;
+      padding-left: 0 !important;
+      margin-left: 0 !important;
 
       &::after {
         content: "SIS CUNI";
@@ -38,68 +35,31 @@
         letter-spacing: 1px;
         color: var(--primary) !important;
         display: block;
-        padding-top: 0.45rem;
       }
 
       img {
         display: none;
-        border: none;
-        width: 34px;
-        height: 34px;
       }
     }
 
-    #stev_nazev {
-      display: none;
-    }
-
-    #stev_logo {
-      display: none;
+    #stev_nazev,
+    #stev_logo,
+    #flogin {
+      display: none !important;
     }
 
     #stev_role_icons {
-      display: flex;
-      width: 100vw;
       flex-direction: row-reverse;
-      padding-right: 1rem;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
 
       #stev_role {
-        display: flex;
-        text-align: center;
-        font-size: 0.5rem;
-
-        * {
-          font-size: 0.9rem !important;
-          font-weight: 400;
-        }
-
-        #stev_user_roles {
-          display: none;
-          position: fixed;
-          top: 2.5rem;
-          left: 0;
-          right: 0;
-          overflow: hidden;
-          margin: 0 60px;
-          overflow: hidden;
-
-          #stev_datum {
-            display: none;
-          }
-        }
-
-        #stev_jmeno,
-        #stev_user_roles_fak {
-          display: none;
-        }
+        display: none;
       }
 
       #stev_icons {
         display: none;
-      }
-
-      &:hover #stev_icons {
-        display: flex;
         flex-direction: column;
         position: fixed;
         background: white;
@@ -109,6 +69,10 @@
         z-index: 99;
         left: 20%;
         padding: 0 1rem;
+
+        &.menu-open {
+          display: flex;
+        }
 
         a {
           background: none;
@@ -161,8 +125,6 @@
           display: none;
         }
 
-        
-
         #stev_lang_en::after {
           content: "English";
         }
@@ -170,35 +132,24 @@
           content: "Čeština";
         }
       }
-
-
-
-      &::after {
-        content: "";
-        background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/menu.svg);
-        filter: invert() brightness(80%);
-        background-size: 80%;
-        background-repeat: no-repeat;
-        background-position: center;
-        text-align: center;
-        margin-top: 0.8rem;
-        position: relative;
-        width: 34px;
-        height: 34px;
-        padding-top: 2px;
-      }
     }
 
-    #flogin {
-      display: none !important;
+    #app-burger {
+      background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/menu.svg);
+      filter: invert() brightness(80%);
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 24px !important;
+      height: 24px;
+      margin: 0 !important;
     }
 
     #stev_notify {
-      position: absolute;
       z-index: 9999;
       background: none;
-      top: 2.7rem;
-      right: 5rem;
+      width: 24px;
+      height: 24px;
 
       &::after {
         content: "";
@@ -222,7 +173,7 @@
       box-shadow: 2px 10px 15px -6px rgba(150, 150, 150, 0.3);
 
       &.notif-open {
-        display: flex;;
+        display: flex;
       }
 
       #stev_notify_counter {
@@ -233,7 +184,7 @@
         min-height: 200px;
         display: flex;
         justify-content: center;
-        font-size: .9rem;
+        font-size: 0.9rem;
         flex-direction: column;
 
         &::after {
@@ -243,7 +194,7 @@
           text-align: center;
           margin-top: -1.4rem;
           background: var(--bg);
-          letter-spacing: .1px;
+          letter-spacing: 0.1px;
         }
 
         .lang_en &::after {
@@ -273,6 +224,7 @@
         display: flex;
       }
 
+
       #stev_nazev,
       #stev_module_ico,
       #stev_header,
@@ -281,51 +233,55 @@
         white-space: normal;
       }
 
-      #stev_module_ico img {
-        display: none;
+      #stev_module_ico {
+        flex-grow: 0;
+        height: 32%;
+        flex-direction: column;
+        padding-top: 4rem !important;
+
+
+        img {
+          display: none;
+        }
+  
+        &::before {
+          content: "SIS CUNI";
+
+          color: var(--primary);
+          font-family: var(--heading);
+          font-weight: 100;
+          display: block;
+          text-align: center;
+          font-size: 3.1rem;
+        }
+  
+        &::after {
+          content: "Studijní informační systém";
+
+          display: block;
+          text-align: center;
+          font-size: 1rem;
+          letter-spacing: 0.2px;
+        }
       }
 
-      #stev_module_ico::before {
-        content: "SIS CUNI";
-        color: var(--primary);
-        font-family: var(--heading);
-        font-weight: 100;
-        display: block;
-        position: absolute;
-        top: 20%;
-        text-align: center;
-        left: 0;
-        right: 0;
-        font-size: 3rem;
-      }
-
-      #stev_module_ico::after {
-        content: "Studijní informační systém";
-        display: block;
-        position: absolute;
-        top: calc(20% + 60px);
-        text-align: center;
-        left: 0;
-        right: 0;
-        font-size: 1rem;
-        letter-spacing: 0.2px;
-      }
 
       #stev_role_icons {
         display: flex;
         flex-direction: column;
         width: 100%;
-        flex-grow: 1;
+        position: static !important;
+        
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
       }
 
       #stev_role,
       #stev_role_prihlaseni,
       #stev_role_prihlaseni #flogin {
         display: flex !important;
-      }
-
-      #stev_role_icons::after {
-        content: none;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
       #stev_nazev_modulu_sverzi {
@@ -352,25 +308,33 @@
       #flogin {
         display: block !important;
         width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-direction: column;
         align-content: flex-start;
+        justify-content: flex-end;
         padding: 3rem 1rem 0;
         text-align: left;
-        justify-content: flex-end;
+
+        label {
+          color: var(--text) !important;
+          font-size: 1rem;
+          text-align: left;
+          display: block !important;
+          font-family: "Roboto";
+          font-weight: 100;
+        }
 
         input[type="text"],
         input[type="password"] {
           width: 100% !important;
           min-width: 0;
           background: white !important;
-          border-radius: 0;
-          border: none;
-          margin-top: -0.5rem;
+          margin-top: -1.3rem;
           margin-bottom: 1rem;
-          padding: 0.6rem;
+          padding: .6rem 0.6rem;
+          border-radius: 0;
           border: 1px solid var(--grey-100);
           border-bottom: 2px solid var(--primary);
+          font-size: .9rem;
         }
 
         input[type="submit"] {
@@ -383,25 +347,23 @@
           letter-spacing: 0.3px;
           font-family: var(--heading) !important;
           font-weight: 300 !important;
+          font-size: 1rem;
           letter-spacing: 1.5px !important;
         }
 
-        label {
-          width: 100%;
-          margin-bottom: 0;
-        }
-
         label[for="chkAutologin"] {
-          width: calc(100% - 40px);
-          margin-top: 0.65rem;
-          margin-left: 0.6rem;
-          color: var(--text);
+          display: none !important;
         }
 
         #chkAutologin {
           width: initial;
           margin-top: 0.8rem;
+          display: none;
         }
+      }
+
+      #app-burger {
+        display: none;
       }
     }
   }

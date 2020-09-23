@@ -9,6 +9,7 @@ const styles = [
   require("../client/styles/content/index.scss"),
   require("../client/styles/content/homepage.scss"),
   require("../client/styles/content/timetable.scss"),
+  require("../client/styles/content/zkous_st.scss"),
   require("../client/styles/footer.css"),
   require("../client/styles/header.scss"),
   require("../client/styles/index.css"),

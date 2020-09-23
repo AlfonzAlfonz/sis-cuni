@@ -1,0 +1,16 @@
+.module-zkous_st.do-prehled {
+  * { background-color: red !important;}
+  .form_div.pageBlock {
+    table tbody {
+      display: flex;
+      flex-direction: column;
+
+      td {
+        display: flex;
+        flex-direction: column;
+        background-color: red;
+
+      }
+    }
+  }
+}

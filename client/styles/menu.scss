@@ -13,11 +13,11 @@ body > table .menu {
     font-size: 1rem;
     padding: 1.2rem 0 1rem;
     background: var(--grey-50) !important;
-    box-shadow: 2px 2px 15px rgba(0,0,0,.3);
+    box-shadow: 2px 2px 15px -5px rgba(0,0,0,.3);
     width: 100vw;
     overflow-x: scroll;
     position: fixed;
-    top: 82px;
+    top: 71px;
     z-index: 80;
 
     td {
@@ -66,7 +66,7 @@ body > table .menu {
     position: relative;
     padding: 0 .5rem;
     z-index: 0;
-    top: 140px;
+    top: 128px;
 
     td:first-child {
       display: none;

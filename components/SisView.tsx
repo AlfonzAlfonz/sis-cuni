@@ -33,7 +33,8 @@ const SisView: FC<Props> = ({ setProgress }) => {
         <WebView
           source={{ uri }}
           onMessage={e => { }}
-          injectedJavaScript={javascript}
+          // injectedJavaScript={javascript}
+          injectedJavaScriptBeforeContentLoaded={javascript}
           onLoadProgress={({ nativeEvent }) => {
             setProgress(nativeEvent.progress);
           }}

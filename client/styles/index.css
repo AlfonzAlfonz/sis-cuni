@@ -23,6 +23,10 @@ body {
   --grey-900: #130a0f;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   color: var(--primary) !important;
 }
