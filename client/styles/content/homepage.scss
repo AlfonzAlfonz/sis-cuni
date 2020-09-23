@@ -15,6 +15,8 @@
       margin-bottom: 0 !important;
       background: var(--bg) !important;
       color: var(--text) !important;
+      font-family: "Roboto";
+      font-weight: 100 !important;
     }
 
     & > div[style]:not([id]):not([class]):nth-child(odd) {
@@ -67,6 +69,7 @@
       border-bottom: none !important;
       margin-bottom: -0.6rem !important;
       padding-bottom: 0 !important;
+      box-shadow: none !important;
     }
 
     & > * {
@@ -74,30 +77,34 @@
     }
 
     & > div[style="border: 1px solid #C0C0C0; margin-bottom: 5px;background: #F5F5F5; padding: 3px 8px 3px 8px ;"] {
+      display: flex;
+      flex-direction: column;
+
       .link5 {
         width: initial !important;
         height: initial !important;
-        line-height: 2.45;
-        font-size: 0.8rem;
+        line-height: 2;
+        font-size: 1rem;
         display: flex;
         align-items: center;
         border: none;
         margin: 0 !important;
-        padding: 0.5rem 0 !important;
+        padding: 1rem 0 !important;
 
-        // &::before {
-        //   content: "";
-        //   display: block;
-        //   background-size: 24px !important;
-        //   background-repeat: no-repeat !important;
-        //   background-position: center !important;
-        //   width: 24px;
-        //   height: 32px;
-        //   float: left;
-        //   margin-right: 0.8rem;
-        // }
+        &::before {
+          content: "";
+          display: block;
+          background-size: 24px !important;
+          background-repeat: no-repeat !important;
+          background-position: center !important;
+          width: 24px;
+          height: 32px;
+          float: left;
+          margin-right: 0.8rem;
+        }
 
         img {
+          display: none;
           vertical-align: middle;
           margin-right: 0.8rem !important;
           margin-left: 0.2rem;
@@ -113,102 +120,134 @@
         float: none !important;
       }
 
-      // &:nth-child(5) {
-      //   order: 2;
-      //   & > div:nth-child(2) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/pen-tool.svg);
-      //   }
-      //   & > div:nth-child(3) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/award.svg);
-      //   }
-      //   & > div:nth-child(4) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/edit-2.svg);
-      //   }
-      //   & > div:nth-child(5) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/book.svg);
-      //   }
-      //   & > div:nth-child(6) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/star.svg);
-      //   }
-      //   & > div:nth-child(7) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/maximize.svg);
-      //   }
-      //   & > div:nth-child(8) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/archive.svg);
-      //   }
-      // }
+      &:nth-child(5) {
+        order: 2;
+        & > div:nth-child(2) {
+          order: 2;
+          .link5::before {
+            background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/pen-tool.svg);
+          }
+        }
+        & > div:nth-child(3) {
+          order: 2;
+          .link5::before {
+            background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/award.svg);
+          }
+        }
+        & > div:nth-child(4) {
+          order: 2;
+          .link5::before {
+            background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/edit-2.svg);
+          }
+        }
+        & > div:nth-child(5) {
+          order: 1;
+          .link5::before {
+            background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/book.svg);
+          }
+        }
+        & > div:nth-child(6) {
+          order: 0;
+          .link5::before {
+            background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/star.svg);
+          }
+        }
+        & > div:nth-child(7) {
+          order: 2;
+          .link5::before {
+            background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/maximize.svg);
+          }
+        }
+        & > div:nth-child(8) {
+          order: 2;
+          .link5::before {
+            background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/archive.svg);
+          }
+        }
+      }
 
-      // &:nth-child(7) {
-      //   & > div:nth-child(2) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/clock.svg);
-      //   }
-      // }
+      &:nth-child(7) {
+        & > div:nth-child(2) .link5 {
+          &::before {
+            background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/clock.svg);
+          }
+          &::after {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 1rem;
+            background: var(--bg);
+            margin-top: 0.3rem;
+            margin-left: -1.4rem;
+          }
+        }
+      }
 
-      // &:nth-child(9) {
-      //   & > div:nth-child(2) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/key.svg);
-      //   }
-      // }
+      &:nth-child(9) {
+        & > div:nth-child(2) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/key.svg);
+        }
+      }
 
-      // &:nth-child(11) {
-      //   & > div:nth-child(2) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/users.svg);
-      //   }
-      //   & > div:nth-child(3) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/align-left.svg);
-      //   }
-      // }
+      &:nth-child(11) {
+        & > div:nth-child(2) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/users.svg);
+        }
+        & > div:nth-child(3) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/align-left.svg);
+        }
+      }
 
-      // &:nth-child(13) {
-      //   & > div:nth-child(2) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/database.svg);
-      //   }
-      //   & > div:nth-child(3) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/external-link.svg);
-      //   }
-      //   & > div:nth-child(4) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/search.svg);
-      //   }
-      //   & > div:nth-child(5) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/maximize.svg);
-      //   }
-      //   & > div:nth-child(6) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/maximize.svg);
-      //   }
-      // }
+      &:nth-child(13) {
+        & > div:nth-child(2) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/database.svg);
+        }
+        & > div:nth-child(3) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/external-link.svg);
+        }
+        & > div:nth-child(4) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/search.svg);
+        }
+        & > div:nth-child(5) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/maximize.svg);
+        }
+        & > div:nth-child(6) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/maximize.svg);
+        }
+      }
 
-      // &:nth-child(15) {
-      //   & > div:nth-child(2) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/bookmark.svg);
-      //   }
-      //   & > div:nth-child(3) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/database.svg);
-      //   }
-      //   & > div:nth-child(4) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/trello.svg);
-      //   }
-      //   & > div:nth-child(5) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/users.svg);
-      //   }
-      //   & > div:nth-child(6) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/search.svg);
-      //   }
-      //   & > div:nth-child(6) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/log-in.svg);
-      //   }
-      //   & > div:nth-child(7) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/square.svg);
-      //   }
-      //   & > div:nth-child(8) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/user.svg);
-      //   }
-      //   & > div:nth-child(9) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/dollar-sign.svg);
-      //   }
-      //   & > div:nth-child(13) .link5::before {
-      //     background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/dollar-sign.svg);
-      //   }
-      // }
+      &:nth-child(15) {
+        & > div:nth-child(2) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/bookmark.svg);
+        }
+        & > div:nth-child(3) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/database.svg);
+        }
+        & > div:nth-child(4) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/trello.svg);
+        }
+        & > div:nth-child(5) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/users.svg);
+        }
+        & > div:nth-child(6) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/search.svg);
+        }
+        & > div:nth-child(6) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/log-in.svg);
+        }
+        & > div:nth-child(7) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/square.svg);
+        }
+        & > div:nth-child(8) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/user.svg);
+        }
+        & > div:nth-child(9) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/dollar-sign.svg);
+        }
+        & > div:nth-child(13) .link5::before {
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/dollar-sign.svg);
+        }
+      }
     }
 
     div:first-of-type + div {

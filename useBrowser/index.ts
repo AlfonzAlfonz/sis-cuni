@@ -7,6 +7,7 @@ import { Linking } from "react-native";
 const styles = [
   require("../client/styles/content/alerts.scss"),
   require("../client/styles/content/index.scss"),
+  require("../client/styles/content/grupicek.scss"),
   require("../client/styles/content/homepage.scss"),
   require("../client/styles/content/timetable.scss"),
   require("../client/styles/content/zkous_st.scss"),

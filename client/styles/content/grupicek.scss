@@ -1,0 +1,146 @@
+.module-grupicek.page-index {
+  .tab1 {
+    display: flex;
+
+    * {
+      border: none !important;
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+    }
+    .head1 {
+      display: none;
+    }
+
+    .row1,
+    .row2 {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      margin: 1rem 0;
+      background-color: white;
+      padding: 1rem;
+
+      td {
+        width: 100%;
+
+        nobr {
+          white-space: normal;
+        }
+      }
+
+      td:nth-child(1) {
+        display: none;
+      }
+
+      td:nth-child(2) {
+        order: 11;
+        width: 50%;
+
+        a {
+          img {
+            display: none;
+          }
+        }
+      }
+
+      td:nth-child(3) {
+        display: none;
+      }
+
+      td:nth-child(4) {
+        order: 0;
+        width: 50%;
+      }
+
+      td:nth-child(5) {
+        order: 0;
+        width: 50%;
+        text-align: right;
+      }
+
+      td:nth-child(6) {
+        order: 0;
+      }
+
+      td:nth-child(7) {
+        order: 0;
+        width: 50%;
+      }
+
+      td:nth-child(8) {
+        display: none;
+      }
+
+      td:nth-child(9) {
+        display: none;
+      }
+    }
+  }
+  .tab1 + div {
+    display: none;
+  }
+}
+
+.module-grupicek.page-vysledky_studenta {
+  .form_div.pageBlock {
+    border: none !important;
+    padding: 1rem 0.5rem;
+
+    .form_div_title {
+      display: none;
+    }
+
+    .tab2 {
+      display: flex;
+
+      tbody {
+        display: flex;
+        flex-direction: column;
+
+        tr {
+          display: flex;
+          flex-direction: column;
+          padding: 0.5rem;
+          th {
+            text-align: left;
+          }
+
+          &:first-child {
+            th {
+              display: none;
+            }
+            td {
+              font-size: 1.3rem;
+              font-weight: 100;
+            }
+          }
+
+          &:last-child td {
+            border-bottom: none !important;
+          }
+        }
+      }
+    }
+  }
+
+  form[name="vysledky_form"] {
+    width: calc(100vw - 2rem);
+    margin: 0 1rem;
+    font-size: 0.8rem;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg);
+
+    div[style="font-style: italic; color: #333; margin: 5px 0px 8px 0px; background-color: #F0F0F0; padding: 1px;"] {
+      background-color: var(--bg) !important;
+      & > span {
+        display: none;
+      }
+    }
+  }
+}

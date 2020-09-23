@@ -51,6 +51,7 @@ export const clientJS = () => {
     const bell = document.getElementById("stev_notify");
     const alerts = document.getElementById("stev_notify_bar");
     const burger = document.createElement("dir");
+    const menu = document.getElementById("stev_role_icons");
     burger.setAttribute("id", "app-burger");
 
     bell && root?.appendChild(bell);
@@ -59,12 +60,20 @@ export const clientJS = () => {
 
     bell?.addEventListener("click", e => {
       e.stopPropagation();
-      alerts?.classList.add("open");
+      alerts?.classList.add("notif-open");
+    });
+
+    burger?.addEventListener("click", e => {
+      e.stopPropagation();
+      menu?.classList.add("menu-open");
     });
 
     window.addEventListener("click", () => {
       alerts?.classList.remove("notif-open");
+      menu?.classList.remove("menu-open");
     });
+
+    document.querySelector<HTMLElement>("#stev_jmeno")!.innerText = document.querySelector<HTMLElement>("#stev_jmeno b")!.innerText
   };
 
   const loginpage = () => {

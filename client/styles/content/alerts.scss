@@ -30,7 +30,8 @@
     display: flex;
     border: none !important;
     width: 100%;
-    font-size: 1rem;
+    font-size: .9rem;
+    line-height: 1.4;
 
     ul {
       list-style-type: none;
@@ -46,7 +47,8 @@
     background: #fffff0;
   }
   .warning_ico {
-    background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/alert-triangle.svg);
+    background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/alert-triangle.svg);
+    filter: brightness(0%);
   }
 }
 
@@ -56,8 +58,8 @@
     background: #ceedff;
   }
   .info_ico {
-    background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/info.svg);
-    filter: invert();
+    background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/info.svg);
+    filter: brightness(100%);
   }
 }
 
@@ -67,7 +69,7 @@
     background: #f56565;
   }
   .error_ico {
-    background: url(https://raw.githubusercontent.com/feathericons/feather/master/icons/info.svg);
-    filter: invert();
+    background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/info.svg);
+    filter: brightness(100%);
   }
 }
