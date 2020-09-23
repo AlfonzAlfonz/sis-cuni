@@ -103,16 +103,16 @@ div.filtr_div {
 
         label {
           line-height: 1;
-          margin-right: .3rem !important;
+          margin-right: 0.3rem !important;
         }
       }
 
       .form_radio {
-        margin-left: .2rem !important;
+        margin-left: 0.2rem !important;
 
         input {
           margin: 0 !important;
-          margin-right: .3rem !important;
+          margin-right: 0.3rem !important;
           float: left;
           height: 2rem;
         }
@@ -124,28 +124,28 @@ div.filtr_div {
         }
       }
 
-      & > input[type=radio] {
+      & > input[type="radio"] {
         float: left;
       }
 
-      & > input[type=radio] + label {
+      & > input[type="radio"] + label {
         width: calc(100% - 30px);
         outline: 1px solid blue;
         float: left;
       }
 
-      label[for=utyp] {
+      label[for="utyp"] {
         width: 100%;
         margin-bottom: -1rem;
       }
 
-      input[type="text"], select {
+      input[type="text"],
+      select {
         width: calc(100vw - 3.5rem);
         margin: 0 !important;
         display: block;
       }
 
-      
       select {
         width: 100%;
       }
@@ -163,16 +163,19 @@ div.filtr_div {
 .but1,
 .but_next,
 .but_find,
-#flogin input[type="submit"] {
-  border: none;
+#flogin input[type="submit"],
+.but_akce2 {
+  border: none !important;
   background: var(--primary);
   padding: 0.3rem 1rem !important;
   color: var(--bg) !important;
   margin-top: 0.3rem;
   display: inline-block;
   white-space: nowrap;
-  padding: .7rem 2rem !important;
-  letter-spacing: .3px;
+  padding: 0.5rem 1rem !important;
+  font-family: var(--heading) !important;
+  font-weight: 300 !important;
+  font-size: 1rem;
 }
 
 .but1 a,
@@ -185,9 +188,9 @@ div.filtr_div {
   width: calc(100vw - 2rem);
   overflow-x: scroll !important;
   display: block;
-  font-size: .7rem;
+  font-size: 0.7rem;
 
   tbody {
-    display: table
+    display: table;
   }
 }

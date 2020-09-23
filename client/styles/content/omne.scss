@@ -1,0 +1,212 @@
+.module-omne.page-index:not([data-do]),
+.module-omne.page-index[data-do="info"] {
+  .form_div.pageBlock {
+    border: none !important;
+
+    .form_div_title {
+      display: none;
+    }
+
+    table {
+      display: flex;
+      border: none !important;
+      tbody,
+      tr {
+        display: flex;
+        flex-direction: column;
+        border: none !important;
+      }
+
+      tr > td:first-child {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+          display: none;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          width: 128px;
+          height: 128px;
+          background: url(https://raw.githubusercontent.com/AlfonzAlfonz/sis-cuni/master/icons/user.svg);
+          background-size: 100%;
+
+          &:hover {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    th {
+      text-align: left;
+      font-weight: 100;
+    }
+
+    td {
+      border: none !important;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.module-omne.page-index[data-do="email"]:not([data-doe]),
+.module-omne.page-index[data-do="email"][data-doe="email_inbox"] {
+  #email {
+    display: flex;
+    tbody,
+    tr {
+      display: flex;
+      flex-direction: column;
+    }
+    .head1 {
+      display: none;
+    }
+
+    .row1,
+    .row2 {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      background: var(--bg);
+      flex-direction: row;
+      flex-wrap: wrap;
+      border: none !important;
+
+      td {
+        display: block;
+        border: none !important;
+        width: 100%;
+
+        // button
+        &:nth-child(1) {
+          order: 2;
+          text-align: right;
+          a {
+            &::before {
+              content: "Otevřít";
+            }
+            img {
+              display: none;
+            }
+          }
+        }
+
+        // subject
+        &:nth-child(2) {
+          //white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: calc(100vw - 3.5rem);
+        }
+
+        //author
+        &:nth-child(3) {
+          order: -1;
+          width: 50%;
+        }
+
+        // idk
+        &:nth-child(4) {
+          display: none;
+        }
+
+        // idk
+        &:nth-child(5) {
+          display: none;
+        }
+
+        // received
+        &:nth-child(6) {
+          order: -1;
+          width: 50%;
+          font-weight: 100;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+.module-omne.page-index[data-do="email"][data-doe="email_detail"] {
+  .form_div.pageBlock {
+    border: none;
+    background: var(--bg) !important;
+    width: calc(100vw - 2rem);
+
+    .form_div_title {
+      background: var(--bg) !important;
+      color: var(--text);
+    }
+
+    .tab1 {
+      &,
+      tbody {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      tr {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(4),
+        &:nth-child(5) {
+          width: 50%;
+        }
+
+        b {
+          font-weight: 400 !important;
+        }
+      }
+
+      th {
+        display: block;
+        text-align: left;
+        font-weight: 100;
+      }
+      td {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      td[colspan="2"] {
+        padding: 0 1rem 1rem 0.2rem;
+        width: calc(100% - 1rem);
+      }
+      br {
+        display: initial !important;
+      }
+    }
+  }
+
+  #akce_div {
+    border: none;
+    width: calc(100% - 2rem);
+    background: #eee;
+    padding: 0 !important;
+
+    div {
+      background: #eee;
+      padding: 0 !important;
+    }
+    form {
+      padding: 0 !important;
+      display: flex;
+      flex-direction: column;
+      font-size: 0;
+      background: #eee;
+
+      input + input {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

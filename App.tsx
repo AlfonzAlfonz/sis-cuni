@@ -22,7 +22,7 @@ export default function App () {
         </>
       )}
 
-      <Info active={activeInfo} />
+      <Info active={true} />
     </View>
   );
 }

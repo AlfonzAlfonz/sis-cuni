@@ -68,10 +68,13 @@
       }
 
       #stev_role {
+        
         #stev_jmeno {
           display: block;
           text-align: left;
-          padding: .75rem;
+          padding: 1rem;
+          font-size: 1rem;
+          margin-bottom: -1rem !important;
         }
         #stev_user_roles {
           display: none;
@@ -86,6 +89,7 @@
       #stev_icons {
         flex-direction: column;
         padding: 0 1rem;
+        margin: 0 !important;
 
         a {
           background: none;
@@ -93,10 +97,10 @@
           width: initial;
           height: initial;
           text-align: left;
-          line-height: 1;
+          line-height: 3;
           font-size: 1rem;
-          padding: 1.5rem 0rem;
           color: black;
+          margin: 0 !important;
 
           &::after {
             content: attr(title);
@@ -109,7 +113,6 @@
 
         #stev_settings {
           order: 2;
-          padding-top: 0;
 
           &::after {
             content: "Osobní info, nastavení, e-mail";
@@ -122,7 +125,6 @@
         #stev_logoff {
           order: 3;
           border-bottom: none !important;
-          margin-top: -1rem;
 
           &::after {
             content: "Odhlásit se";
@@ -359,7 +361,6 @@
           padding: 0.7rem 1.4rem !important;
           background-color: var(--primary);
           color: var(--bg) !important;
-          letter-spacing: 0.3px;
           font-family: var(--heading) !important;
           font-weight: 300 !important;
           font-size: 1rem;

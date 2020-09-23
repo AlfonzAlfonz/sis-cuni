@@ -73,7 +73,10 @@ export const clientJS = () => {
       menu?.classList.remove("menu-open");
     });
 
-    document.querySelector<HTMLElement>("#stev_jmeno")!.innerText = document.querySelector<HTMLElement>("#stev_jmeno b")!.innerText
+    const name = document.querySelector<HTMLElement>("#stev_jmeno b");
+    if (name) {
+      document.querySelector<HTMLElement>("#stev_jmeno")!.innerText = name.innerText;
+    }
   };
 
   const loginpage = () => {
@@ -147,10 +150,13 @@ export const clientJS = () => {
   const moduleId = () => {
     const module = /^\/studium\/([\w-]+)\//.exec(window.location.pathname);
     const page = /([\w-]+)\.php$/.exec(window.location.pathname);
-    const doParam = new URLSearchParams(window.location.search).get("do");
+    const q =new URLSearchParams(window.location.search);
+    const doParam = q.get("do");
+    const doeParam = q.get("doe");
 
     module && document.body.classList.add(`module-${module[1]}`);
     page && document.body.classList.add(`page-${page[1]}`);
-    doParam && document.body.classList.add(`do-${doParam}`);
+    doParam && document.body.setAttribute("data-do", doParam);
+    doeParam && document.body.setAttribute("data-doe", doeParam);
   };
 };

@@ -4,6 +4,10 @@
     margin-top: 0;
     padding-top: 5rem !important;
 
+    #hint {
+      display: none !important;
+    }
+
     & > div[style]:not([id]):not([class]) {
       display: block !important;
     }

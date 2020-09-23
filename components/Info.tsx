@@ -1,5 +1,6 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { TouchableOpacity, View, Text, Modal, TouchableHighlight, Linking } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 
 interface Props {
   active: boolean;
@@ -7,6 +8,10 @@ interface Props {
 
 const Info: FC<Props> = ({ active }) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    AsyncStorage.getItem("info").then(v => setOpen(v !== "1"));
+  }, []);
 
   return (
     <>
@@ -57,19 +62,22 @@ const Info: FC<Props> = ({ active }) => {
               <Text style={{ fontSize: 20 }}>O SIS CUNI aplikaci</Text>
             </View>
 
-            <TouchableHighlight onPress={() => setOpen(false)}>
+            <TouchableHighlight onPress={() => AsyncStorage.setItem("info", "1").then(() => setOpen(false))}>
               <Text style={{ fontSize: 40, marginTop: -15 }}>×</Text>
             </TouchableHighlight>
           </View>
 
           <View>
-            <Text style={{ lineHeight: 20 }}>
+            <Text style={{ fontWeight: "700", lineHeight: 20 }}>
+              Aplikace je v testovací verzi, proto některé funkce nemusejí fungovat a některé stránky vypadají rozbitě.
+            </Text>
+            <Text style={{ lineHeight: 20, marginTop: 10 }}>
               SIS CUNI je aplikace pro správu informačního systému Univerzity Karlovy. Nejedná se o oficiální aplikaci,
               ale aplikace nesbírá žádné data o uživateli. Aplikace zobrazuje okno prohlížeče do kterého vloží styly
               aplikace.
             </Text>
             <Text style={{ fontSize: 18, marginTop: 10, lineHeight: 30 }}>Github</Text>
-            <Text style={{ lineHeight: 20 }}>Kód aplikace je dostupný na githubu pod MIT licensí:</Text>
+            <Text style={{ lineHeight: 20 }}>Kód aplikace je dostupný na Githubu pod MIT licensí:</Text>
             <TouchableHighlight onPress={() => Linking.openURL("https://github.com/AlfonzAlfonz/sis-cuni")}>
               <Text style={{ textDecorationLine: "underline", lineHeight: 20 }}>https://github.com/AlfonzAlfonz/sis-cuni</Text>
             </TouchableHighlight>
