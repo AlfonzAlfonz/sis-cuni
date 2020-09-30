@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useRef } from 'react';
-import { BackHandler } from 'react-native';
-import WebView from 'react-native-webview';
+import React, { FC, useEffect, useRef } from "react";
+import { BackHandler } from "react-native";
+import WebView from "react-native-webview";
 
-import { useBrowser } from '../useBrowser';
+import { useBrowser } from "../useBrowser";
 
 interface Props {
   setProgress: (i: number) => unknown;

@@ -1,3 +1,10 @@
+/* 
+  FormDivPageBlock
+
+  Grey boxes for showing information such as subjects, timetable info, often displayed 
+  with a blue header. FormDivPageBlocks are one of the most used structures in SIS.
+*/
+
 .form_div.pageBlock {
   display: flex;
   flex-direction: column;

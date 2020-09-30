@@ -3,7 +3,6 @@ import { MutableRefObject, useState } from "react";
 import WebView from "react-native-webview";
 import { useSource } from "./useSource/index";
 import { Linking } from "react-native";
-import * as FileSystem from "expo-file-system";
 
 const styles = [
   require("../client/styles/content/alerts.scss"),
@@ -26,7 +25,12 @@ export const useBrowser = (ref: MutableRefObject<WebView>) => {
   const style = useStyle(styles, ref);
   const source = useSource();
 
-  const javascript = `const css = \`${style!}\`; ${source}; true;`;
+  const javascript = `
+    const css = \`${style!}\`; 
+    const dev = ${process.env.NODE_ENV !== "production" ? "true" : "false"};
+    ${source}; 
+    true;
+  `;
 
   return {
     javascript,

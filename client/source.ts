@@ -1,4 +1,12 @@
+
+/*
+  Main script of the app
+
+  Because of the limitations the current setup everything needs to be placed inside the function clientJS.
+*/
+
 declare const css: string;
+declare const dev: boolean;
 declare const ReactNativeWebView: any;
 
 export const clientJS = () => {
@@ -8,6 +16,7 @@ export const clientJS = () => {
     injectStyles();
   };
 
+  // Load styles as soon as posible
   setTimeout(() => document.head && load());
 
   window.addEventListener("DOMContentLoaded", () => {
@@ -17,9 +26,10 @@ export const clientJS = () => {
     loginpage();
     timetable();
     filters();
-    moduleId();
+    moduleId(dev);
   });
 
+  // Inject compiled styles
   const injectStyles = () => {
     const style = document.createElement("style");
     style.setAttribute("type", "text/css");
@@ -37,6 +47,7 @@ export const clientJS = () => {
     document.head.appendChild(roboto);
   };
 
+  // Detect user's language
   const lang = () => {
     if (document.querySelector("#stev_lang_en")) {
       document.body.classList.add("lang_cs");
@@ -46,6 +57,7 @@ export const clientJS = () => {
   };
 
   const header = () => {
+    // Modify structure of the head
     const root = document.getElementById("stev_header");
     const bell = document.getElementById("stev_notify");
     const alerts = document.getElementById("stev_notify_bar");
@@ -78,6 +90,7 @@ export const clientJS = () => {
     }
   };
 
+  // Detect if user is logged in and display login page if he's not
   const loginpage = () => {
     if (document.querySelector("#stev_role_icons.anonym") && window.location.pathname.startsWith("/studium/index.php")) {
       document.body.classList.add("body-with-login");
@@ -109,11 +122,13 @@ export const clientJS = () => {
     }
   };
 
+  // Collapse all filters by default
   const filters = () => {
     const handles = document.querySelectorAll<HTMLAnchorElement>("a[id^='filtr_href_']");
     handles.forEach(h => h.click());
   };
 
+  // Current page/module detection
   const moduleId = (debug: boolean = false) => {
     const module = /^\/studium\/([\w-]+)\//.exec(window.location.pathname);
     const page = /([\w-]+)\.php$/.exec(window.location.pathname);
