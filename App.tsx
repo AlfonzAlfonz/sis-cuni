@@ -6,7 +6,6 @@ import Info from "./components/Info";
 import SisView from "./components/SisView";
 
 export default function App () {
-  const [activeInfo, setActiveInfo] = useState(false);
   const [progress, setProgress] = useState(0);
 
   return (
@@ -22,7 +21,7 @@ export default function App () {
         </>
       )}
 
-      <Info active={true} />
+      <Info active />
     </View>
   );
 }

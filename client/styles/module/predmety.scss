@@ -1,0 +1,228 @@
+body[data-module="predmety"][data-page="index"] {
+  #content {
+    overflow-x: hidden;
+
+    table {
+      display: flex;
+
+      .row_tab_left, .row_tab {
+        display: none;
+      }
+    }
+  }
+
+  .form_div.pageBlock {
+    & > table > tbody > tr {
+      display: flex;
+      flex-direction: column;
+    }
+
+    td,
+    th {
+      display: block;
+
+      .link3[href^="../predmety/redir.php"] {
+        display: block;
+      }
+    }
+
+    .tab2 {
+      margin-left: 0 !important;
+    }
+  }
+
+  // attachements
+  .form_div.pageBlock + div + .tab1 {
+    tr.row1,
+    tr.row2 {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0.5rem;
+      background-color: var(--bg) !important;
+      font-size: 0.9rem;
+
+      &:nth-child(even) {
+        background-color: var(--grey-50) !important;
+      }
+
+      td {
+        background-color: transparent !important;
+
+        // save
+        &:nth-child(1) {
+          display: none;
+        }
+
+        // name
+        &:nth-child(2) {
+          order: 0;
+        }
+
+        // comment
+        &:nth-child(3) {
+          order: 2;
+          width: 100%;
+          flex-shrink: 0;
+          font-size: 0.7rem;
+        }
+
+        // author
+        &:nth-child(4) {
+          order: 1;
+          width: 100%;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .tab1 {
+    width: calc(100vw - 2rem) !important;
+    &,
+    & > tbody,
+    & > tbody > tr,
+    & > tbody > tr > td {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    * {
+      border: none !important;
+    }
+
+    tr.head1,
+    tr.head3 {
+      padding: 0.5rem;
+      background-color: var(--bg);
+
+      td {
+        display: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        &:first-child {
+          display: flex !important;
+          font-size: 1.3rem;
+          background-color: var(--bg);
+          color: var(--text);
+
+          * {
+            font-weight: 100;
+          }
+        }
+      }
+    }
+
+    tr.head3 + tr {
+      background-color: var(--bg);
+      font-size: 0.9rem;
+      line-height: 1.3;
+
+      div[style="position:relative"] {
+        position: static !important;
+        font-size: 0.8rem;
+        margin-top: -0.5rem;
+        margin-bottom: 0.5rem;
+        * {
+          position: static !important;
+          float: none !important;
+        }
+      }
+
+      br {
+        display: initial !important;
+      }
+
+      table {
+        display: table !important;
+        width: auto !important;
+
+        tbody {
+          display: table-row-group;
+
+          tr {
+            display: table-row;
+
+            td,
+            th {
+              display: table-cell;
+              padding: 0.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tb .head1 td {
+    justify-content: space-between;
+    padding: 0.5rem;
+    background-color: var(--bg) !important;
+    color: var(--primary);
+    font-weight: 100;
+    font-size: 1.3rem;
+    border: none !important;
+    width: calc(100vw - 2rem) !important;
+  }
+
+  .tab1:nth-last-child(2) {
+    display: block !important;
+    width: auto !important;
+    overflow-x: scroll !important;
+    width: calc(100vw - 2rem) !important;
+
+    tbody {
+      display: table;
+
+      .head2 {
+        td {
+          background-color: var(--grey-200) !important;
+        }
+        img {
+          display: none;
+        }
+      }
+
+      .row1,
+      .row1 td {
+        background-color: var(--bg);
+      }
+
+      .row2,
+      .row2 td {
+        background-color: var(--grey-50);
+      }
+
+      tr {
+        display: table-row;
+
+        td,
+        th {
+          display: table-cell;
+          padding: 0.2rem;
+        }
+      }
+    }
+
+    // tbody {
+    //   flex-direction: row;
+    //   flex-wrap: wrap;
+    // }
+
+    // .row1,
+    // .row2 {
+    //   width: 25%;
+    //   text-align: right;
+
+    //   &:nth-child(odd) {
+    //     padding-top: 1rem;
+    //   }
+
+    //   &:nth-child(even) {
+    //     width: 75%;
+    //   }
+    // }
+  }
+}

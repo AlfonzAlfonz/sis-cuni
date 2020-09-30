@@ -1,9 +1,8 @@
-import React, { FC, useEffect, useRef, useState } from "react";
-import { BackHandler } from "react-native";
-import WebView from "react-native-webview";
+import React, { FC, useEffect, useRef } from 'react';
+import { BackHandler } from 'react-native';
+import WebView from 'react-native-webview';
 
-import { useBrowser } from "../useBrowser";
-import { trace } from "../utils/trace";
+import { useBrowser } from '../useBrowser';
 
 interface Props {
   setProgress: (i: number) => unknown;
@@ -33,14 +32,9 @@ const SisView: FC<Props> = ({ setProgress }) => {
         <WebView
           source={{ uri }}
           onMessage={e => { }}
-          // injectedJavaScript={javascript}
           injectedJavaScriptBeforeContentLoaded={javascript}
-          onLoadProgress={({ nativeEvent }) => {
-            setProgress(nativeEvent.progress);
-          }}
-          onLoad={() => {
-            setProgress(1);
-          }}
+          onLoadProgress={({ nativeEvent }) => setProgress(nativeEvent.progress)}
+          onLoad={() => setProgress(1)}
           onShouldStartLoadWithRequest={req => navigate(req.url)}
           ref={ref}
           onError={(syntheticEvent) => {

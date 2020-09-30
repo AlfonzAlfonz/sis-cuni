@@ -6,7 +6,6 @@
   align-items: flex-start;
   margin-top: 4.5rem;
   width: 100vw;
-  overflow: hidden;
   background-color: #eee;
 
   br {
@@ -186,7 +185,6 @@ div.filtr_div {
 
 .tab1 {
   width: calc(100vw - 2rem);
-  overflow-x: scroll !important;
   display: block;
   font-size: 0.7rem;
 

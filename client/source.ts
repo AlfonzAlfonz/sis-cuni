@@ -15,7 +15,6 @@ export const clientJS = () => {
     lang();
     header();
     loginpage();
-    homepage();
     timetable();
     filters();
     moduleId();
@@ -89,16 +88,6 @@ export const clientJS = () => {
     }
   };
 
-  const homepage = () => {
-    const isHomepage = Array
-      .from(document.querySelectorAll("body > table table.menu tr.menu1 td a.menu"))
-      .some(e => e.textContent?.includes("Textový režim"));
-
-    if (isHomepage) {
-      document.body.classList.add("body-with-homepage");
-    }
-  };
-
   const timetable = () => {
     const tt = document.querySelector("#roztab");
     if (tt) {
@@ -110,28 +99,6 @@ export const clientJS = () => {
             e.parentNode?.removeChild(e.parentNode?.childNodes[e.parentNode?.childNodes.length - 1]);
           }
         });
-
-      const a = () => {
-        const head: HTMLElement[] = Array.from(document.querySelectorAll("#roztab #head td"));
-
-        const rect = tt?.getBoundingClientRect();
-
-        head.map(h => {
-          if (rect.top < 128) {
-            h.style.top = Math.abs(rect.top - 130) - 2 + "px";
-          } else {
-            h.style.top = "0";
-          }
-        });
-      };
-
-      window.addEventListener("scroll", () => {
-        a();
-        setTimeout(a, 1);
-        setTimeout(a, 3);
-        setTimeout(a, 5);
-        setTimeout(a, 8);
-      });
 
       const tabimg = document.querySelector("tbody > tr > .row_tab img[src=\"../img/ico_pdf.png\"]")!;
       let tabs = tabimg;
@@ -147,16 +114,24 @@ export const clientJS = () => {
     handles.forEach(h => h.click());
   };
 
-  const moduleId = () => {
+  const moduleId = (debug: boolean = false) => {
     const module = /^\/studium\/([\w-]+)\//.exec(window.location.pathname);
     const page = /([\w-]+)\.php$/.exec(window.location.pathname);
-    const q =new URLSearchParams(window.location.search);
+    const q = new URLSearchParams(window.location.search);
     const doParam = q.get("do");
     const doeParam = q.get("doe");
 
-    module && document.body.classList.add(`module-${module[1]}`);
-    page && document.body.classList.add(`page-${page[1]}`);
+    module && document.body.setAttribute("data-module", module[1]);
+    page && document.body.setAttribute("data-page", page[1]);
     doParam && document.body.setAttribute("data-do", doParam);
     doeParam && document.body.setAttribute("data-doe", doeParam);
+
+    if (!debug) return;
+
+    const debugEl = document.createElement("div");
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    debugEl.textContent = `module: ${module?.[1]}; page: ${page?.[1]}; do: ${doParam}; doe: ${doeParam}`;
+    debugEl.setAttribute("class", "__debug");
+    document.body.appendChild(debugEl);
   };
 };

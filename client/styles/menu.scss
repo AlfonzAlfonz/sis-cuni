@@ -12,7 +12,7 @@ body > table .menu {
     display: flex;
     font-size: 1rem;
     padding: 1.2rem 0 1rem;
-    background: var(--grey-50) !important;
+    background: var(--bg) !important;
     box-shadow: 2px 2px 15px -5px rgba(0,0,0,.3);
     width: 100vw;
     overflow-x: scroll;
@@ -61,12 +61,12 @@ body > table .menu {
   .menu2 {
     display: flex;
     background: var(--grey-600);
-    width: calc(100vw - 1rem);
+    width: 100vw;
     overflow: scroll;
     position: relative;
-    padding: 0 .5rem;
+    padding: 0;
     z-index: 0;
-    top: 128px;
+    top: 126px;
 
     td:first-child {
       display: none;

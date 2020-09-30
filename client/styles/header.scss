@@ -1,14 +1,14 @@
 #stev_header_bkg {
-  width: 100%;
+  width: 100vw;
   display: flex;
   background: none;
   background-color: var(--bg) !important;
   margin-top: 0;
-  padding-top: 1.2rem;
   border: none !important;
   position: fixed;
   z-index: 99;
   box-shadow: 0 2px 15px -7px rgba(0, 0, 0, 0.2);
+  padding: 1.8rem 0.7rem 1rem 0.7rem !important;
 
   #stev_header {
     width: 100%;
@@ -20,39 +20,54 @@
     background-color: var(--bg) !important;
     border: none !important;
     align-items: center;
-    margin: 0.8rem 0.7rem 0.8rem 1rem !important;
 
     #stev_module_ico {
-      flex-grow: 1;
-      width: 100% !important;
-      padding-left: 0 !important;
-      margin-left: 0 !important;
+      display: none;
+    }
 
-      &::after {
-        content: "SIS CUNI";
+    #flogin,
+    #sis_plus_icons,
+    #verze_modulu,
+    #stev_podtitul_modulu {
+      display: none !important;
+    }
+
+    #stev_logo {
+      //width: 100% !important
+      display: none;
+    }
+
+    #stev_nazev {
+      color: var(--primary);
+      max-width: 100%;
+      flex-grow: 1;
+      overflow: hidden;
+      display: flex;
+
+      #stev_nazev_modulu_sverzi {
+        width: calc(100% - 1rem);
+      }
+
+      #stev_nazev_modulu {
+        display: flex;
         font-family: "Roboto";
         font-weight: 300;
         letter-spacing: 1px;
-        color: var(--primary) !important;
-        display: block;
+        font-size: 1.2rem;
+        padding: 0 !important;
+        overflow: hidden;
       }
 
-      img {
+      br {
         display: none;
       }
-    }
-
-    #stev_nazev,
-    #stev_logo,
-    #flogin {
-      display: none !important;
     }
 
     #stev_role_icons {
       flex-direction: column;
       position: fixed;
       top: 5.2rem;
-      right: .6rem;
+      right: 0.6rem;
       background: white;
       z-index: 999999;
       display: none;
@@ -68,7 +83,6 @@
       }
 
       #stev_role {
-        
         #stev_jmeno {
           display: block;
           text-align: left;
@@ -78,11 +92,11 @@
         }
         #stev_user_roles {
           display: none;
-          font-size: .8rem;
+          font-size: 0.8rem;
         }
         #stev_user_roles_fak {
           display: none;
-          font-size: .8rem;
+          font-size: 0.8rem;
         }
       }
 
@@ -244,7 +258,6 @@
         display: flex;
       }
 
-      #stev_nazev,
       #stev_module_ico,
       #stev_header,
       #stev_role_icons,
@@ -252,11 +265,29 @@
         white-space: normal;
       }
 
+      #stev_nazev,
+      #stev_logo {
+        display: none;
+      }
+
       #stev_module_ico {
         flex-grow: 0;
         height: 32%;
         flex-direction: column;
         padding-top: 4rem !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        display: flex;
+
+        &::after {
+          content: "SIS CUNI";
+          font-family: "Roboto";
+          font-weight: 300;
+          letter-spacing: 1px;
+          color: var(--primary) !important;
+          display: block;
+        }
 
         img {
           display: none;

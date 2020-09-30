@@ -1,4 +1,4 @@
-.body-with-homepage {
+body:not([data-module])[data-page="index"] {
   #content {
     align-items: stretch;
     margin-top: 0;

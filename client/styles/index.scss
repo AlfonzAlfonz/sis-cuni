@@ -1,6 +1,11 @@
+html {
+  background: #eee;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system,BlinkMacSystemFont,"Roboto",Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji;
   font-size: 20px;
   color: #666;
   min-height: 100vh;
@@ -24,7 +29,7 @@ body {
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 
 a {
@@ -51,4 +56,15 @@ body > table > tbody > tr,
 body > table > tbody > tr > td {
   display: block;
   position: relative;
+}
+
+.__debug {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border-top: 1px dotted red;
+  font-size: 0.8rem;
+  padding: 0.3rem;
 }

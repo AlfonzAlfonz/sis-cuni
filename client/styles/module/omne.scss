@@ -1,26 +1,13 @@
-.module-omne.page-index:not([data-do]),
-.module-omne.page-index[data-do="info"] {
+body[data-module="omne"][data-page="index"]:not([data-do]),
+body[data-module="omne"][data-page="index"][data-do="info"] {
   .form_div.pageBlock {
-    border: none !important;
-
     .form_div_title {
       display: none;
     }
 
     table {
-      display: flex;
-      border: none !important;
-      tbody,
-      tr {
-        display: flex;
-        flex-direction: column;
-        border: none !important;
-      }
-
       tr > td:first-child {
         position: relative;
-        display: flex;
-        flex-direction: column;
         align-items: center;
 
         img {
@@ -51,11 +38,19 @@
       border: none !important;
       margin-bottom: 0.5rem;
     }
+
+    td:empty::after {
+      content: "Nevyplněno";
+      font-style: italic;
+      font-weight: 300;
+      color: var(grey-500);
+      
+    }
   }
 }
 
-.module-omne.page-index[data-do="email"]:not([data-doe]),
-.module-omne.page-index[data-do="email"][data-doe="email_inbox"] {
+body[data-module="omne"][data-page="index"][data-do="email"]:not([data-doe]),
+body[data-module="omne"][data-page="index"][data-do="email"][data-doe="email_inbox"] {
   #email {
     display: flex;
     tbody,
@@ -80,6 +75,8 @@
         display: block;
         border: none !important;
         width: 100%;
+        background: var(--bg);
+        font-size: 1rem;
 
         // button
         &:nth-child(1) {
@@ -97,7 +94,6 @@
 
         // subject
         &:nth-child(2) {
-          //white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
           width: calc(100vw - 3.5rem);
@@ -124,6 +120,7 @@
           order: -1;
           width: 50%;
           font-weight: 100;
+          font-style: italic;
           text-align: right;
         }
       }
@@ -131,7 +128,7 @@
   }
 }
 
-.module-omne.page-index[data-do="email"][data-doe="email_detail"] {
+body[data-module="omne"][data-page="index"][data-do="email"][data-doe="email_detail"] {
   .form_div.pageBlock {
     border: none;
     background: var(--bg) !important;

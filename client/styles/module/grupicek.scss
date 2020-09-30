@@ -1,6 +1,8 @@
-.module-grupicek.page-index {
+// Studijní mezivýsledky
+body[data-module="grupicek"][data-page="index"] {
   .tab1 {
     display: flex;
+    font-size: .9rem;
 
     * {
       border: none !important;
@@ -10,6 +12,7 @@
       display: flex;
       flex-direction: column;
     }
+
     .head1 {
       display: none;
     }
@@ -20,60 +23,80 @@
       flex-wrap: wrap;
       overflow: hidden;
       margin: 1rem 0;
-      background-color: white;
       padding: 1rem;
+      background-color: var(--bg) !important;
 
       td {
         width: 100%;
+        background-color: var(--bg) !important;
 
         nobr {
           white-space: normal;
         }
       }
 
+      // ???
       td:nth-child(1) {
         display: none;
       }
 
+
+      // detail link
       td:nth-child(2) {
         order: 11;
         width: 50%;
+        text-align: right;
+        display: none;
 
         a {
+          &::after {
+            content: "Detail";
+          }
           img {
             display: none;
           }
         }
       }
 
+      // year
       td:nth-child(3) {
         display: none;
       }
 
+      // code
       td:nth-child(4) {
         order: 0;
         width: 50%;
       }
 
+      // type
       td:nth-child(5) {
         order: 0;
         width: 50%;
         text-align: right;
+        font-style: italic;
+        font-weight: 100;
       }
 
+      // name
       td:nth-child(6) {
         order: 0;
+        font-size: 1.1rem;
+        padding-bottom: .5rem;
       }
 
+      // time/place
       td:nth-child(7) {
         order: 0;
-        width: 50%;
+        width: 100%;
       }
 
+      // ticket
       td:nth-child(8) {
         display: none;
       }
 
+      // note
       td:nth-child(9) {
         display: none;
       }
@@ -84,45 +107,10 @@
   }
 }
 
-.module-grupicek.page-vysledky_studenta {
+body[data-module="grupicek"][data-page="vysledky_studenta"] {
   .form_div.pageBlock {
-    border: none !important;
-    padding: 1rem 0.5rem;
-
     .form_div_title {
       display: none;
-    }
-
-    .tab2 {
-      display: flex;
-
-      tbody {
-        display: flex;
-        flex-direction: column;
-
-        tr {
-          display: flex;
-          flex-direction: column;
-          padding: 0.5rem;
-          th {
-            text-align: left;
-          }
-
-          &:first-child {
-            th {
-              display: none;
-            }
-            td {
-              font-size: 1.3rem;
-              font-weight: 100;
-            }
-          }
-
-          &:last-child td {
-            border-bottom: none !important;
-          }
-        }
-      }
     }
   }
 

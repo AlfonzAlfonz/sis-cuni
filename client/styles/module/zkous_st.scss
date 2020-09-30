@@ -1,5 +1,6 @@
-.module-zkous_st.do-prehled {
-  * { background-color: red !important;}
+body[data-module="zkous_st"][data-do="prehled"],
+body[data-module="zkous_st"]:not([data-do]) {
+
   .form_div.pageBlock {
     table tbody {
       display: flex;
@@ -8,8 +9,6 @@
       td {
         display: flex;
         flex-direction: column;
-        background-color: red;
-
       }
     }
   }

@@ -1,0 +1,272 @@
+body[data-module="rozvrhng"][data-page^="roz_muj_"],
+body[data-module="rozvrhng"][data-page^="roz_ucitel_"] {
+  .roztab-download {
+    order: 2;
+    padding-top: 2rem;
+
+    .row_tab_left {
+      display: none;
+    }
+
+    .row_tab_left:first-child {
+      display: block;
+
+      ::after {
+        content: "Stáhnout:";
+        display: block;
+        margin-top: -2rem;
+        margin-left: 1rem;
+      }
+    }
+
+    .row_tab + td {
+      display: none;
+    }
+
+    .row_tab {
+      background: transparent;
+      border: none !important;
+      margin-top: 2rem;
+
+      a[href^="../rozvrhng/roz_muj_macro.php"],
+      a[href^="../rozvrhng/roz_muj_micro.php"] {
+        background: var(--primary);
+        display: block;
+        color: white !important;
+        padding: 0.5rem;
+        text-decoration: none;
+        margin-left: 0.7rem;
+
+        img {
+          display: none;
+        }
+      }
+    }
+
+    .row_tab:nth-child(2) a[href^="../rozvrhng/roz_muj_macro.php"]::after {
+      content: "PDF";
+    }
+
+    .row_tab:nth-child(5) a[href^="../rozvrhng/roz_muj_macro.php"]::after {
+      content: "CSV";
+    }
+
+    .row_tab:nth-child(8) a[href^="../rozvrhng/roz_muj_micro.php"]::after {
+      content: "iCal";
+    }
+  }
+
+  #roztab {
+    display: flex;
+    width: 100vw !important;
+    position: relative;
+
+    tbody {
+      display: block;
+      position: relative;
+    }
+
+    tr {
+      display: flex;
+    }
+
+    #head {
+      position: sticky;
+      top: 126px;
+      background: var(--primary) !important;
+      height: 50px;
+
+      td {
+        display: block;
+        position: absolute;
+        z-index: 999;
+        background: var(--bg) !important;
+        margin-left: 50px;
+        padding-bottom: 0px !important;
+        width: 100%;
+
+        .outer {
+          border-right: 1px solid var(--primary) !important;
+          width: 121.4px !important;
+          flex-grow: 0;
+          float: left;
+          padding: 1rem 0.5rem;
+
+          &:last-child {
+            border-right: none !important;
+          }
+
+          .inner {
+            display: flex;
+            flex-direction: row-reverse;
+
+            .blok {
+              display: inline;
+
+              &:first-of-type {
+                width: 100%;
+                text-align: right;
+
+                &::after {
+                  content: "(";
+                }
+              }
+            }
+
+            &::before {
+              content: ")";
+            }
+          }
+        }
+
+        &.day {
+          background: var(--bg) !important;
+        }
+      }
+    }
+
+    & > tbody {
+      display: table;
+    }
+
+    td {
+      border: none !important;
+      font-size: 15px;
+
+      &.day {
+        background: var(--primary) !important;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        .blok {
+          display: block;
+        }
+      }
+    }
+
+    tr:nth-child(odd) {
+      background: var(--bg);
+    }
+
+    tr:nth-child(even) {
+      background: var(--grey-50);
+    }
+
+    a {
+      color: black !important;
+    }
+
+    .ramecek {
+      background-color: var(--grey-300) !important;
+      border: none;
+      line-height: 1.4;
+      padding: 0.4rem;
+      display: flex;
+      overflow: visible !important;
+
+      .nowrap {
+        white-space: normal !important;
+        overflow: visible !important;
+        display: none;
+      }
+
+      .nowrap:first-child {
+        display: block;
+      }
+
+      &[style="background-color: #5095cb;"] {
+        background-color: var(--primary) !important;
+        a {
+          color: white !important;
+        }
+      }
+
+      &[style="background-color: #92c4df;"] {
+        background-color: var(--primary-light) !important;
+      }
+
+      &[style="background-color: #bce2eb;"] {
+        background-color: var(--grey-100) !important;
+      }
+    }
+  }
+
+  .head3,
+  tr.head3 td,
+  tbody.tb .head1 td {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--bg);
+    padding: 0.2rem 0.3rem;
+    font-weight: 700;
+  }
+
+  tbody.tb .head1 td {
+    padding: 0.7rem 0.5rem;
+  }
+
+  #content > .tab1 {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0 1rem 1rem !important;
+  }
+
+  #content > .tab1 > tbody > tr:not(.head3):not(.head10):not(.head4):not(.head1) > td {
+    padding: 0.4rem 0.3rem;
+    background: white;
+    border-color: var(--grey-600);
+    border-top: none;
+
+    div[style="position:relative"] * {
+      color: var(--bg) !important;
+      font-weight: 300;
+    }
+  }
+
+  #content > .tab1 > tbody > tr.head10,
+  #content > .tab1 > tbody > tr.head4,
+  #content > .tab1 > tbody > tr.head1 {
+    td {
+      background: white;
+      border: none !important;
+      background-color: var(--primary);
+    }
+  }
+}
+
+body[data-module="rozvrhng"][data-page="roz_predmet_gl"] {
+  .form_div.pageBlock:nth-of-type(1) {
+    .tab1 {
+      tr:nth-child(1) {
+        td:nth-child(2) {
+          flex-direction: column;
+
+          a:nth-child(1) {
+            display: block;
+          }
+
+          a:nth-child(2) {
+            align-self: flex-end;
+            margin-top: -0.7rem;
+
+            &::after {
+              content: "Detail předmětu";
+              font-size: 0.7rem;
+            }
+
+            img {
+              display: none;
+            }
+          }
+
+          a:last-child {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

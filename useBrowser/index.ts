@@ -3,18 +3,21 @@ import { MutableRefObject, useState } from "react";
 import WebView from "react-native-webview";
 import { useSource } from "./useSource/index";
 import { Linking } from "react-native";
+import * as FileSystem from "expo-file-system";
 
 const styles = [
   require("../client/styles/content/alerts.scss"),
+  require("../client/styles/content/formDivPageBlock.scss"),
   require("../client/styles/content/index.scss"),
-  require("../client/styles/content/omne.scss"),
-  require("../client/styles/content/grupicek.scss"),
-  require("../client/styles/content/homepage.scss"),
-  require("../client/styles/content/timetable.scss"),
-  require("../client/styles/content/zkous_st.scss"),
-  require("../client/styles/footer.css"),
+  require("../client/styles/module/grupicek.scss"),
+  require("../client/styles/module/homepage.scss"),
+  require("../client/styles/module/omne.scss"),
+  require("../client/styles/module/predmety.scss"),
+  require("../client/styles/module/rozvrhng.scss"),
+  require("../client/styles/module/zkous_st.scss"),
+  require("../client/styles/footer.scss"),
   require("../client/styles/header.scss"),
-  require("../client/styles/index.css"),
+  require("../client/styles/index.scss"),
   require("../client/styles/menu.scss")
 ];
 
@@ -31,6 +34,11 @@ export const useBrowser = (ref: MutableRefObject<WebView>) => {
     ready: !!(style && source),
     navigate: (url: string) => {
       if (url === uri) return true;
+
+      if (url.startsWith("https://is.cuni.cz/studium/predmety/index.php") && url.includes("do=download")) {
+        Linking.openURL(url);
+        return false;
+      }
 
       if (url.startsWith("https://is.cuni.cz/studium") || url.startsWith("https://idp.cuni.cz")) {
         if (url.startsWith("https://is.cuni.cz/studium/login.php")) {
